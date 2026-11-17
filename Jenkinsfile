@@ -1,9 +1,9 @@
 pipeline {
     agent any
     triggers {
-    githubPush()              // roda quando o GitHub avisar
-    pollSCM('H/5 * * * *')    // reserva: confere a cada 5 min, caso o aviso falhe
-        }triggers { pollSCM('* * * * *') }   // verifica o repo a cada minuto
+        githubPush()              // roda quando o GitHub avisar
+        pollSCM('H/5 * * * *')    // reserva: confere a cada 5 min, caso o aviso falhe
+    }
     stages {
         stage('Testes') {
             steps { sh 'python3 -m unittest -v' }
